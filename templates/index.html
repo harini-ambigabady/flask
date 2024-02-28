@@ -17,5 +17,19 @@
 <body>
     <h1 class="bg">WaveSync</h1>
     <img src="{{ url_for('video_feed') }}" width="640" height="480">
+    <script>
+    const video = document.getElementById('video');
+  
+    // Prompt user for permission to use the webcam.
+    if (navigator.mediaDevices.getUserMedia) {
+      navigator.mediaDevices.getUserMedia({ video: true })
+        .then(function (stream) {
+          video.srcObject = stream;
+        })
+        .catch(function (err0r) {
+          console.log("Something went wrong!");
+        });
+    }
+  </script>
 </body>
 </html>
